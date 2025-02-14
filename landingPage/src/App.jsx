@@ -6,7 +6,8 @@ import Services from './components/Services';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
-
+import Products from './components/Products';
+import office from './assets/office1.jpg';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,12 +35,13 @@ const ScrollToTop = () => {
   return isVisible ? (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+      className="fixed bottom-6 right-6 p-3 bg-gradient-to-tl from-purple-600 to-pink-800 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
     >
       <ArrowUp size={24} />
     </button>
   ) : null;
 };
+
 const App = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -50,18 +52,23 @@ const App = () => {
   return (
     <div className="relative">
       <Navbar scrollToSection={scrollToSection} />
-      <section id="home" className="min-h-screen pt-20 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <Home />
-      </section>
-      <section id="about" className="min-h-screen bg-white">
-        <About />
-      </section>
-      <section id="services" className="min-h-screen bg-gray-50">
-        <Services />
-      </section>
-      <section id="contact" className="min-h-screen bg-white">
-        <Contact />
-      </section>
+      <div style={{ backgroundImage: `url(${office})`, backgroundSize: 'contain', backgroundPosition: 'center' }}>
+        <section id="home" className="min-h-screen pt-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+          <Home />
+        </section>
+        <section id="about" className=" bg-white">
+          <About />
+        </section>
+        <section id="services" className=" bg-gray-50">
+          <Services />
+        </section>
+        <section id="products" className=" bg-white">
+          <Products />
+        </section>
+        <section id="contact" className=" ">
+          <Contact />
+        </section>
+      </div>
       <Footer />
       <ScrollToTop />
     </div>
